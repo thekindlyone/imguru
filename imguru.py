@@ -50,7 +50,7 @@ def dir_upload(client,path):
 
 def make_album(**kwargs):
     payload={'data':kwargs}
-    url='http://127.0.0.1:5000/create'
+    url='http://thekindlyone.co.in/imguru/create'
     try:
         r=requests.post(url,data=json.dumps(payload))
         if r.status_code==200:
