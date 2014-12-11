@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python
 from __future__ import print_function
 from imgurpython import ImgurClient as imgur
 import webbrowser, os.path
@@ -8,8 +8,6 @@ import json
 from imgurpython.helpers.error import ImgurClientError
 client_id = '0ee25e395ec9569'
 client_secret = '400182ea3b3818efcaae28d8614fef3df2713400'
-testfile=os.path.expanduser('~/Pictures/Screenshot_2014-11-19-12-33-42.png')
-testdir= os.path.expanduser('~/Pictures/testing')
 log= 'imguru.log'
 SUPPORTED=['.png','.jpg','.jpeg','.gif']
 def connect(client_id,client_secret):
@@ -38,15 +36,6 @@ def dir_upload(client,path):
             if os.path.splitext(fname)[-1].lower() in SUPPORTED:
                 yield file_upload(client,os.path.join(root,fname))
 
-# def make_album(client,**payload):
-#     try:
-#         create_obj=client.create_album(payload)
-#         album=client.get_album(create_obj.get('id'))
-#         return True,album
-#     except ImgurClientError as e:
-#         return False,e.error_message
-#     except:
-#         return False,sys.exc_info()[0]
 
 def make_album(**kwargs):
     payload={'data':kwargs}
@@ -61,8 +50,8 @@ def make_album(**kwargs):
         return False,sys.exc_info()[0]
 
 
-def main():
-    path=testdir
+def main():    
+    path=os.path.expanduser(sys.argv[1])
     if not os.path.exists(path):
         print(" ERROR: {} not found.".format(path))
         sys.exit(1)
@@ -75,7 +64,8 @@ def main():
         sys.exit(1)
     
     if os.path.isdir(path): # entire directory
-        title=os.path.split(path)[-1]
+        print ('directory detected ')
+        title=os.path.split(path)[-1] if path != '.' else os.path.split(os.getcwd())[-1]
         ids=[]
         links=[]
         for ok,result,filename in dir_upload(client,path):            
@@ -88,6 +78,7 @@ def main():
             else:
                 print('Error uploading {}. Info: {}'.format(
                     filename,result))
+        
         ok,content=make_album(title=title,links=links)
         if ok:
             print ("Album Created! title: {} url: {}".format(
