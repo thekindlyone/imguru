@@ -15,7 +15,8 @@ Uploaded ubuntu-4188-1600x900.jpg to http://i.imgur.com/U9uVeqT.jpg
 Album Created! title: Wallpapers url: http://thekindlyone.co.in/imguru/gallery/ly4zJ6
 
 ```
-Once the upload is finished, all the links are sent to a server where an album/gallery is generated with a permalink(this is to bypass the 2 factor authentication needed from imgur to create imgur album..something that is hard to arrange from a terminal)
+Once the upload is finished, all the links are sent to a server where an album/gallery is generated with a permalink(this is to bypass the 2 factor authentication needed from imgur to create imgur album..something that is hard to arrange from a terminal)         
+
 terminal app:       
 https://github.com/thekindlyone/imguru       
 
