@@ -16,9 +16,11 @@ Album Created! title: Wallpapers url: http://thekindlyone.co.in/imguru/gallery/l
 
 ```
 Once the upload is finished, all the links are sent to a server where an album/gallery is generated with a permalink(this is to bypass the 2 factor authentication needed from imgur to create imgur album..something that is hard to arrange from a terminal)
-terminal app:
-https://github.com/thekindlyone/imguru
-serverside:
-https://github.com/thekindlyone/imguru_www
-example gallery:
-http://thekindlyone.co.in/imguru/gallery/ly4zJ6
+terminal app:       
+https://github.com/thekindlyone/imguru       
+
+serverside:        
+https://github.com/thekindlyone/imguru_www     
+
+example gallery:        
+http://thekindlyone.co.in/imguru/gallery/ly4zJ6      
